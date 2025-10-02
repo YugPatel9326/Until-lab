@@ -14,18 +14,18 @@ int main() {
     auto doubleNumber = [](int n) { 
         return n * 2; 
     };
-    auto greaterThanHundred = [](int n) { 
-        return n > 100; 
+    auto greaterThan200 = [](int n) { 
+        return n > 200; 
     };
-    assert(until(1, doubleNumber, greaterThanHundred) == 128);
+    assert(until(1, doubleNumber, greaterThan200) == 256);
 
     auto addThree = [](int n) { 
         return n + 3; 
     };
-    auto divisibleBySeven = [](int n) { 
-        return (n % 7) == 0; 
+    auto divisibleByTen = [](int n) { 
+        return (n % 10) == 0; 
     };
-    assert(until(2, addThree, divisibleBySeven) == 14);
+    assert(until(2, addThree, divisibleByTen) == 20);
 
     auto square = [](int n) { 
         return n * n; 
