@@ -11,26 +11,26 @@ int until(int x, function<int(int)> f, function<bool(int)> g) {
 }
 
 int main() {
-    auto doubleNumber = [](int n) { 
+    function<int(int)> doubleNumber = [](int n) { 
         return n * 2; 
     };
-    auto greaterThan200 = [](int n) { 
+    function<bool(int)> greaterThan200 = [](int n) { 
         return n > 200; 
     };
     assert(until(1, doubleNumber, greaterThan200) == 256);
 
-    auto addThree = [](int n) { 
+    function<int(int)> addThree = [](int n) { 
         return n + 3; 
     };
-    auto divisibleByTen = [](int n) { 
+    function<bool(int)> divisibleByTen = [](int n) { 
         return (n % 10) == 0; 
     };
     assert(until(2, addThree, divisibleByTen) == 20);
 
-    auto square = [](int n) { 
+    function<int(int)> square = [](int n) { 
         return n * n; 
     };
-    auto atLeastThousand = [](int n) { 
+    function<bool(int)> atLeastThousand = [](int n) { 
         return n >= 1000; 
     };
     assert(until(2, square, atLeastThousand) == 65536);
